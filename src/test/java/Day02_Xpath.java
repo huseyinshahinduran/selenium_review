@@ -57,7 +57,7 @@ public class Day02_Xpath {
 
     @AfterClass
     public static void tearDown(){
-
+        driver.quit();
     }
 
 
