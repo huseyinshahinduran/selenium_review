@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -17,12 +18,13 @@ public class day03_HardAssert {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("http://amazon.com");
+
     }
 
     @Test
-    public void hardAssert(){
+    public void test(){
 
-        driver.get("http://amazon.com");
         String baslik = driver.getTitle();
         // contains - bir string ifadenin içerisinde diğer bir string ifadenin
         //            geçip geçmediğini kontrol ediyordu.
@@ -32,6 +34,29 @@ public class day03_HardAssert {
         }else{
             System.out.println("GEÇMİYOR : " +baslik);
         }
+
+        boolean iceriyorMu=baslik.contains("Car");
+
+        Assert.assertTrue(iceriyorMu);
+
+    }
+
+    @Test
+    public void test2(){
+
+        String baslik = driver.getTitle();
+        boolean falseMu=baslik.contains("Google");
+        Assert.assertFalse(falseMu);
+
+    }
+
+    @Test
+    public void test3(){
+
+        String baslik = driver.getTitle();
+
+        Assert.assertEquals("Amazon.com",baslik);
+
 
     }
 
