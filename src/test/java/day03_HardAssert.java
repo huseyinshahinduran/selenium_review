@@ -22,7 +22,16 @@ public class day03_HardAssert {
     @Test
     public void hardAssert(){
 
-
+        driver.get("http://amazon.com");
+        String baslik = driver.getTitle();
+        // contains - bir string ifadenin içerisinde diğer bir string ifadenin
+        //            geçip geçmediğini kontrol ediyordu.
+        // "Merhaba Dünya !" -> contains("Dünya") TRUE FALSE
+        if(baslik.contains("Car")){ // TRUE ya da FALSE
+            System.out.println("GEÇİYOR : " +baslik);
+        }else{
+            System.out.println("GEÇMİYOR : " +baslik);
+        }
 
     }
 
