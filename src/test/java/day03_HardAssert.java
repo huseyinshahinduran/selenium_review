@@ -57,7 +57,7 @@ public class day03_HardAssert {
 
         Assert.assertEquals("Amazon.com",baslik);
 
-
     }
+
 
 }
